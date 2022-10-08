@@ -9,22 +9,15 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity // This tells Hibernate to make a table out of this class
-public class User {
+public class Board {
   @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
   private Integer id;
 
   private String name;
 
-  private String email;
-
-  private Integer age;
-
-  @OneToMany(mappedBy = "user_assignee")
-  private List<Ticket> tickets_assigned;
-
-  @OneToMany(mappedBy = "user_reporter")
-  private List<Ticket> tickets_reported;
+  @OneToMany(mappedBy = "board")
+  private List<Ticket> tickets;
 
   public Integer getId() {
     return id;
@@ -40,21 +33,5 @@ public class User {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public Integer getAge() {
-    return age;
-  }
-
-  public void setAge(Integer age) {
-    this.age = age;
   }
 }

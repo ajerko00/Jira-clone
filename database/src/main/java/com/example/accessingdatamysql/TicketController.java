@@ -22,7 +22,7 @@ public class TicketController {
       , @RequestParam String heading
       , @RequestParam Character priority
       , @RequestParam Integer estimate
-      , @RequestParam String comment
+      , @RequestParam String description
       , @RequestParam String status) {
     // @ResponseBody means the returned String is the response, not a view name
     // @RequestParam means it is a parameter from the GET or POST request
@@ -33,7 +33,7 @@ public class TicketController {
     // n.setOwner(owner);
     n.setPriority(priority);
     n.setEstimate(estimate);
-    n.setComment(comment);
+    n.setDescription(description);
     n.setStatus(status);
     ticketRepository.save(n);
     return "Saved";

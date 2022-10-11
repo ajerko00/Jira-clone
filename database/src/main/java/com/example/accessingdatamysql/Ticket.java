@@ -22,16 +22,13 @@ public class Ticket {
   private User user_reporter;
 
   @ManyToOne
-  @JoinColumn(name="board_id")
-  private Board board;
+  @JoinColumn(name="sprint_id")
+  private Sprint sprint;
 
-  /*
   @ManyToOne
   @JoinColumn(name="tag_id")
   private Tag tag;
-  */
   
-  // private String name;
 
   private String heading;
 
@@ -39,11 +36,12 @@ public class Ticket {
 
   private Integer estimate;
 
-  // private String tags;
-
-  private String comment;
+  private String description;
 
   private String status;
+
+  // private date date_created;
+  // private date date_last_change;
 
   // GETTERS & SETTERS 
 
@@ -54,15 +52,7 @@ public class Ticket {
   public void setId(Integer id) {
     this.id = id;
   }
-  /*
-  public String getName() {
-    return name;
-  }
 
-  public void setName() {
-    this.name = "Jira-" + this.getId();
-  }
-  */
   public String getHeading() {
     return heading;
   }
@@ -70,15 +60,7 @@ public class Ticket {
   public void setHeading(String heading) {
     this.heading = heading;
   }
-  /*
-  public String getOwner() {
-    return owner;
-  }
 
-  public void setOwner(String owner) {
-    this.owner = owner;
-  }
-  */
   public Character getPriority() {
     return priority;
   }
@@ -94,22 +76,6 @@ public class Ticket {
   public void setEstimate(Integer estimate) {
     this.estimate = estimate;
   }
-  /*
-  public String getTags() {
-    return tags;
-  }
-
-  public void setTags(String tags) {
-    this.tags = tags;
-  }
-  */
-  public String getComment() {
-    return comment;
-  }
-
-  public void setComment(String comment) {
-    this.comment = comment;
-  }
 
   public String getStatus() {
     return status;
@@ -118,4 +84,44 @@ public class Ticket {
   public void setStatus(String status) {
     this.status = status;
   }
+
+public User getUser_assignee() {
+	return user_assignee;
+}
+
+public void setUser_assignee(User user_assignee) {
+	this.user_assignee = user_assignee;
+}
+
+public User getUser_reporter() {
+	return user_reporter;
+}
+
+public void setUser_reporter(User user_reporter) {
+	this.user_reporter = user_reporter;
+}
+
+public Sprint getSprint() {
+	return sprint;
+}
+
+public void setTag(Sprint sprint) {
+	this.sprint = sprint;
+}
+
+public Tag getTag() {
+	return tag;
+}
+
+public void setTag(Tag tag) {
+	this.tag = tag;
+}
+
+public String getDescription() {
+	return description;
+}
+
+public void setDescription(String description) {
+	this.description = description;
+}
 }

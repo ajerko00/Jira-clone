@@ -17,7 +17,7 @@ public class Board {
   private String name;
 
   @OneToMany(mappedBy = "board")
-  private List<Ticket> tickets;
+  private List<Sprint> sprints;
 
   public Integer getId() {
     return id;

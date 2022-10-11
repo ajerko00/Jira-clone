@@ -9,17 +9,16 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity // This tells Hibernate to make a table out of this class
-public class Tag {
+public class Comment {
   @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
   private Integer id;
 
-  private String name;
+  private String text;
 
-  @OneToMany(mappedBy = "tag")
+  @OneToMany(mappedBy = "comment")
   private List<Ticket> tickets;
-  
-  
+
   public Integer getId() {
     return id;
   }
@@ -28,11 +27,11 @@ public class Tag {
     this.id = id;
   }
 
-  public String getName() {
-    return name;
+  public String getText() {
+    return text;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setText(String text) {
+    this.text = text;
   }
 }
